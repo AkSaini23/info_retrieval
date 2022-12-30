@@ -1,0 +1,6 @@
+FirstVoices is a web-based project to support Indigenous peoples' teaching and archiving of language and culture. It is administered by the First Peoples' Cultural Council in British Columbia (B.C.).FirstVoices was initially launched in 2003 to aid in the preservation of the remaining 34 Indigenous languages in B.C. It provides a space for Indigenous community language teams to archive their languages by recording and uploading words, phrases, songs and stories to a secure, centralized database. Some archives are publicly accessible, but others are password-protected at the request of the individual language community. FirstVoices hosts 47 (36 public and 11 private) language archives in B.C. and also supports 70 First Nations communities in Canada, the US and Australia. Content is entirely controlled and managed by community language administrators.
+FirstVoices provides the following tools so that each archive can be customized to the languages it serves:
+
+An alphabet provides the written character set for a language, with sample sound files for each character.
+A dictionary provides a word list, with translations, definitions, sounds, images and video.
+A phrase book contains everyday conversational language with related text, sound, image and video files to support language learning.

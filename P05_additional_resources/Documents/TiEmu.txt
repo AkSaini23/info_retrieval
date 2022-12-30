@@ -1,0 +1,1 @@
+TiEmu is an emulator that works on many different operating systems like Linux/Unix, macOS, FreeBSD, Microsoft Windows and so on. It emulates the Motorola 68000 series Texas Instruments graphing calculators (TI-89, TI-89 Titanium, TI-92, TI-92 Plus and Voyage 200). TiEmu is licensed under the GPL.

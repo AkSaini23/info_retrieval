@@ -1,0 +1,1 @@
+A Virtual Mixer is a software application that runs on a computer or other digital audio system. Providing the same functionality of a digital or analog mixing console, a virtual mixer takes the audio outputs of many separate tracks or live sources and combines them into a pair of stereo outputs or other routed subgroups for auxiliary outputs.

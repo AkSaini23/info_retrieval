@@ -1,0 +1,78 @@
+In mathematics, a divergent series is an infinite series that is not convergent, meaning that the infinite sequence of the partial sums of the series does not have a finite limit.
+If a series converges, the individual terms of the series must approach zero. Thus any series in which the individual terms do not approach zero diverges. However, convergence is a stronger condition: not all series whose terms approach zero converge. A counterexample is the harmonic series
+
+  
+    
+      
+        1
+        +
+        
+          
+            1
+            2
+          
+        
+        +
+        
+          
+            1
+            3
+          
+        
+        +
+        
+          
+            1
+            4
+          
+        
+        +
+        
+          
+            1
+            5
+          
+        
+        +
+        ⋯
+        =
+        
+          ∑
+          
+            n
+            =
+            1
+          
+          
+            ∞
+          
+        
+        
+          
+            1
+            n
+          
+        
+        .
+      
+    
+    {\displaystyle 1+{\frac {1}{2}}+{\frac {1}{3}}+{\frac {1}{4}}+{\frac {1}{5}}+\cdots =\sum _{n=1}^{\infty }{\frac {1}{n}}.}
+  The divergence of the harmonic series was proven by the medieval mathematician Nicole Oresme.
+In specialized mathematical contexts, values can be objectively assigned to certain series whose sequences of partial sums diverge, in order to make meaning of the divergence of the series. A summability method or summation method is a partial function from the set of series to values. For example, Cesàro summation assigns Grandi's divergent series
+
+  
+    
+      
+        1
+        −
+        1
+        +
+        1
+        −
+        1
+        +
+        ⋯
+      
+    
+    {\displaystyle 1-1+1-1+\cdots }
+  the value 1/2. Cesàro summation is an averaging method, in that it relies on the arithmetic mean of the sequence of partial sums. Other methods involve analytic continuations of related series. In physics, there are a wide variety of summability methods; these are discussed in greater detail in the article on regularization.

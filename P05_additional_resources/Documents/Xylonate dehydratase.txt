@@ -1,0 +1,11 @@
+The enzyme xylonate dehydratase (EC 4.2.1.82) catalyzes the chemical reaction:
+
+D-xylonate 
+  
+    
+      
+        ⇌
+      
+    
+    {\displaystyle \rightleftharpoons }
+   2-dehydro-3-deoxy-D-xylonate + H2OThis enzyme belongs to the family of lyases, specifically the hydro-lyases, which cleave carbon-oxygen bonds.  The systematic name of this enzyme class is D-xylonate hydro-lyase (2-dehydro-3-deoxy-D-xylonate-forming). Other names in common use include D-xylo-aldonate dehydratase, D-xylonate dehydratase, and D-xylonate hydro-lyase.  This enzyme participates in pentose and glucuronate interconversions.

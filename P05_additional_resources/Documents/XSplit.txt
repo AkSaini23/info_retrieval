@@ -1,0 +1,1 @@
+XSplit is a live streaming and video-mixing application developed and maintained by SplitmediaLabs. It is mostly used for capturing gameplay for live streaming or video recording purposes. A Steam version was published by Devolver Digital on 12 June 2016.

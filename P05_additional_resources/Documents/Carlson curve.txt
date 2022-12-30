@@ -1,0 +1,1 @@
+The Carlson curve is a term to describe the rate of DNA sequencing or cost per sequenced base as a function of time.  It is the biotechnological equivalent of Moore's law. Carlson predicted that the doubling time of DNA sequencing technologies (measured by cost and performance) would be at least as fast as Moore's law.
