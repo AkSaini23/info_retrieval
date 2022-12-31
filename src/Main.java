@@ -1,5 +1,8 @@
 import org.apache.lucene.queryparser.classic.ParseException;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -7,18 +10,23 @@ public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         Indexing indexing =new Indexing();
         indexing.indexer();
-        indexing.writ   er("Today is sunny.");
-        indexing.writer("She is a sunny girl.");
-        indexing.writer("To be or not to be.");
-        indexing.writer("She is in Berlin today.");
-        indexing.writer("Sunny Berlin !");
-        indexing.writer("Berlin is always exciting!");
-        indexing.query("sunny AND exciting");
+        String directory = "D:\\Sem5\\Information Retrieval\\P05\\P05_additional_resources\\Documents";
+        File dir = new File(directory);
+        File[] files = dir.listFiles();
+        for (File f : files) {
+            if (f.isFile()) {
+                try (BufferedReader br = new BufferedReader(
+                        new FileReader(f))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        indexing.writer(line);
+                    }
+                }
+            }
+        }
+        indexing.query("it was a beautifull story story");
         indexing.searcher();
-        ArrayList<String> str = new ArrayList<>();
-        str.add("sunny");
-        str.add("to");
-        indexing.postingList(str);
-
     }
 }
+
+

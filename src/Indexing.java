@@ -15,6 +15,8 @@ import org.apache.lucene.util.BytesRef;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Indexing {
     Analyzer analyzer;
@@ -85,16 +87,11 @@ public class Indexing {
 
     public void postingList(ArrayList<String> tokens) throws IOException, ParseException {
         int count = 0;
-
+        ArrayList<Map<Integer,Integer>> indexesOfWholeList = new ArrayList<>();
         while (count < tokens.size()) {
+            Map<Integer,Integer> index = new HashMap<>();
             String token = tokens.get(count);
-            System.out.println();
-            Term term = new Term("Text", token);
             int freq = 0;
-            int docFreq = reader.docFreq(term);
-            long totalFreq = reader.totalTermFreq(term);
-            int temp = 0;
-            System.out.print("[" + token + ":" + totalFreq + ":" + docFreq + "]->[");
             for (int x = 0; x < documentLen; x++) {
                 Terms terms = reader.getTermVector(x, "Text");
                 TermsEnum termsEnum = terms.iterator();
@@ -102,23 +99,15 @@ public class Indexing {
                 if (found) {
                     PostingsEnum posting = termsEnum.postings(null, PostingsEnum.ALL);
                     int docID;
+                    int sum =0 ;
                     while ((docID = posting.nextDoc()) != DocIdSetIterator.NO_MORE_DOCS) {
                         freq = posting.freq();
-                        for (int i = 0; i < freq; i++) {
-                            System.out.print(x + ":" + freq + ":[" + posting.nextPosition() + "]]");
-                            if(i!=freq-1){
-                                System.out.print("->[");
-                            }
-                        }
+                        index.put(x,freq);
                     }
-                    if(freq==1 && docFreq>temp+1) {
-                        System.out.print("->[");
-                        temp = temp + 1;
-                    }
+
                 }
             }
-            temp =0;
-            System.out.println();
+            indexesOfWholeList.add(index);
             count++;
         }
     }
