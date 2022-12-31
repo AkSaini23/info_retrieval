@@ -7,7 +7,7 @@ import java.util.HashSet;
 
 public class Test{
     public static void main(String[] args) {
-        String wordForm = "cancer";
+        String wordForm = "car";
         //  Get the synsets containing the word form=capicity
 
         File f = new File("WordNet\\2.1\\dict");
@@ -27,6 +27,7 @@ public class Test{
                 def.add(synset.getDefinition());
                 String[] wordForms = synset.getWordForms();
                 al.addAll(Arrays.asList(wordForms));
+                System.out.println(al);
             }
             //removing duplicates
             HashSet hs = new HashSet(al);

@@ -8,6 +8,7 @@ import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
+import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.BytesRef;
@@ -36,6 +37,7 @@ public class Indexing {
         analyzer = CustomAnalyzer.builder()
                 .withTokenizer("standard")
                 .addTokenFilter("lowercase")
+                .addTokenFilter("stopwords")
                 .build();
         //"index" Folder for storing Indexes
         directory = FSDirectory.open(new File("index").toPath());
@@ -70,14 +72,15 @@ public class Indexing {
     }
 
     public void searcher() throws IOException, ParseException {
-        int hitsPerPage = 10;
+        int hitsPerPage = 100;
         reader = DirectoryReader.open(directory);
         searchoo = new IndexSearcher(reader);
+        searchoo.setSimilarity(new BM25Similarity());
         TopScoreDocCollector collector = TopScoreDocCollector.create(hitsPerPage);
         searchoo.search(query, collector);
         hits = collector.topDocs().scoreDocs;
         for (int x = 0; x < hits.length; x++) {
-            System.out.println("Matched documents " + x + " : " + searchoo.doc(hits[x].doc).get("Text"));
+            System.out.println("Matched documents " + x + " "+"Score "+ hits[x].score+", " + searchoo.doc(hits[x].doc).get("Text"));
         }
         if (hits.length == 0) {
             System.out.println("No Match Found....");

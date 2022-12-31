@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
-        Indexing indexing =new Indexing();
+        /**Indexing indexing =new Indexing();
         indexing.indexer();
         String directory = "D:\\Sem5\\Information Retrieval\\P05\\P05_additional_resources\\Documents";
         File dir = new File(directory);
@@ -24,9 +24,12 @@ public class Main {
                 }
             }
         }
-        indexing.query("it was a beautifull story story");
-        indexing.searcher();
+        indexing.query("");
+        indexing.searcher();**/
+        QueryExpansion queryExpansion=new QueryExpansion();
+        queryExpansion.newQueryWithSynonym("Owner Car mercedes" );
     }
+
 }
 
 
