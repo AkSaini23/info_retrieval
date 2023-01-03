@@ -5,30 +5,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class QueryExpansion {
-    public ArrayList<String> splitString(String query) {
-        ArrayList<String> words_in_query = new ArrayList<>();
-        StringBuilder temp = new StringBuilder();
-        //splitting our query into single words and storing it into a arraylist
-        for (int x = 0; x < query.length(); x++) {
-            if (Character.isWhitespace(query.charAt(x))) {
-                words_in_query.add(String.valueOf(temp));
-                temp = new StringBuilder("");
-            } else {
-                temp.append(query.charAt(x));
-            }
-            if (x == query.length() - 1) {
-                words_in_query.add(String.valueOf(temp));
-            }
-        }
-        return words_in_query;
-    }
-
-
-    public ArrayList<ArrayList<String>> expendQuery(String query, ArrayList<String> words_in_query) {
-
-        System.out.println(words_in_query);
+    ArrayList<ArrayList<String>> newQueries;
+    public ArrayList<ArrayList<String>> expendQuery(ArrayList<String> words_in_query) {
 
         //list stores the synonym of words from words_in_query list
         ArrayList<ArrayList<String>> synonym = new ArrayList<>();
@@ -53,39 +34,55 @@ public class QueryExpansion {
                 HashSet<String> hs = new HashSet<>(al);
                 al.clear();
                 al.addAll(hs);
-
+                //removing the word that appear in or query originally
+                al.remove(wordForm);
                 //adding all synonym to tempList
                 synonym.add(al);
             } else {
                 synonym.add(new ArrayList<>());
             }
         }
-        System.out.println(synonym);
+
+
         return synonym;
     }
 
-    public void newQueryWithSynonym(String query) {
-        ArrayList<ArrayList<String>> newQueries = new ArrayList<>();
-        ArrayList<String> words_in_query = splitString(query);
-        ArrayList<ArrayList<String>> synonym = expendQuery(query, words_in_query);
+    public ArrayList<String> newQueryWithSynonym(ArrayList<String> words_in_query) {
+        newQueries = new ArrayList<>(); //New Query made by synonym
+        ArrayList<ArrayList<String>> synonym = expendQuery(words_in_query); //contains synonym of words in our query
         newQueries.add(words_in_query);
-        ArrayList<ArrayList<String>> tempQuery = new ArrayList<>();
-        System.out.println(newQueries);
+        ArrayList<String> temp = new ArrayList<>(); // temp list to store words of query
+
         int count = 0;
+
+
         for (ArrayList<String> list : synonym) {
             if (!list.isEmpty()) {
                 for (String word : list) {
-                    words_in_query.remove(count);
-                    words_in_query.add(count, word);
-                    newQueries.add(words_in_query);
-                    System.out.println(newQueries);
+                    String tempStr=words_in_query.get(count);
+                    words_in_query.set(count, word); // replace it with synonym
+                    temp.addAll(words_in_query);
+                    newQueries.add(temp); // add the temp query list to our newQueries list
+                    temp = new ArrayList<>();
+                    words_in_query.set(count,tempStr);
                 }
             }
             count++;
-
         }
-
-
+        //converting list values into string Example [What,is,your,name]->[What is your name]
+        ArrayList<String> queries = new ArrayList<>();
+        StringBuilder tempStr = new StringBuilder();
+        for (ArrayList<String> list : newQueries) {
+            for (String str : list) {
+                tempStr.append(str);
+                tempStr.append(" ");
+            }
+            if (!queries.contains(tempStr)) {
+                queries.add(String.valueOf(tempStr));
+            }
+            tempStr = new StringBuilder();
+        }
+        return queries;
     }
 
 }
