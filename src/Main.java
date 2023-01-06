@@ -53,7 +53,7 @@ public class Main extends JFrame implements ActionListener {
 
         Indexing indexing = new Indexing();
         indexing.indexer();
-        String directory = "D:\\Sem5\\Information Retrieval\\P05\\P05_additional_resources\\Documents";
+        String directory = "P05_additional_resources\\Documents";
         File dir = new File(directory);
         File[] files = dir.listFiles();
         for (File f : files) {
